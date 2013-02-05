@@ -5,20 +5,28 @@
 	<style type="text/css">
 		body {
 			font-family: Georgia;
-			border: solid green 3px;
+		}
+		h1 {
+			font-family: Georgia, sans-serif;
+			font-size: large;
 		}
 		.loading {
 			background-color: grey;
 		}
 		.loaded {
-			background-color: white;
+			background-color: inherit;
 		}
 	</style>
 </head>
 <body>
-<div>
 
-	This <a id="jargoneLink" class='loading'>link</a> (after everything is loaded) highlights the jargon and can be bookmarked.
+	<h1>Jargone</h1>
+
+	<p>Forked from <a href="https://github.com/rooreynolds/jargone">https://github.com/rooreynolds/jargone</a>.  Source
+		available on <a href="https://github.com/kybernetikos/jargone">github</a>.</p>
+
+	<p>This <a id="jargoneLink" class='loading'>link</a> (after everything is loaded) highlights the jargon and can be
+		bookmarked to provide a bookmarklet to highlight jargon on any page.</p>
 
 	<script>
 		var link = document.getElementById('jargoneLink');
@@ -35,9 +43,7 @@
 		xhr.send(null);
 	</script>
 
-
-
-	<p>Hello world!</p>
+	<p>Everything below here is just text you can use to see the highlighter working.</p>
 
 	<ul>
 		<li>Synergy</li>
