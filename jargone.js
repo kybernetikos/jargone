@@ -1,4 +1,5 @@
 (function() {
+	var body = document.body;
 	var head = document.getElementsByTagName("head")[0];
 	var charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
@@ -19,20 +20,14 @@
 		}
 		return output;
 	};
-
+	/* It's a shame we have to use JSONP, but CORS is only on for some domains on github */
 	window._processJargoneWords = function(response) {
 		var data = decode(response.data.content).split("\n");
 		var jargon = {};
 		for (var i = 0; i < data.length; ++i) {
-			var line = data[i];
-			var idx = line.indexOf("\t");
-			if (idx >= 0) {
-				jargon[line.substring(0, idx)] = line.substring(idx + 1);
-			} else {
-				jargon[line] = null;
-			}
+			var line = data[i].split("\t");
+			jargon[line[0]] = line[1];
 		}
-
 		highlightJargon(jargon);
 	};
 
@@ -49,7 +44,7 @@
 	/* create the popup */
 	var popup = document.createElement("div");
 	popup.id = "jargonepopup";
-	document.body.appendChild(popup);
+	body.appendChild(popup);
 
 	function clearPopup() {
 		popup.style.visibility = 'hidden';
@@ -68,7 +63,6 @@
 		}
 	}
 
-	var body = document.body;
 	if (body.addEventListener) {
 		body.addEventListener('mousedown', clearPopup, false);
 		body.addEventListener('scroll', clearPopup, false);
@@ -90,7 +84,7 @@
 		"]";
 
 	function highlightJargon(jargon) {
-		evaluateXPath(document.body, xpathQuery, function(textNode) {
+		evaluateXPath(body, xpathQuery, function(textNode) {
 			var re = new RegExp("\\b("+Object.keys(jargon).join("|")+")\\b", "gi");
 			var parent = textNode.parentNode;
 			textNode.textContent.split(re).map(function(text, index) {
@@ -111,5 +105,4 @@
 			parent.removeChild(textNode);
 		});
 	}
-
 })();

@@ -29,13 +29,12 @@
 		bookmarked to provide a bookmarklet to highlight jargon on any page.</p>
 
 	<script>
+		// Get the javascript from a js file.
 		var link = document.getElementById('jargoneLink');
 		var xhr = new XMLHttpRequest();
 		xhr.open("get", "jargone.js");
 		xhr.onreadystatechange = function() {
-			console.log(xhr.readyState, xhr.status);
 			if (xhr.readyState == 4 && xhr.status == 200) {
-				console.log(xhr.responseText);
 				link.className = "loaded";
 				link.href = "javascript:void"+xhr.responseText;
 			}
