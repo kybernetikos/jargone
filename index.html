@@ -1,2 +1,89 @@
-<p>1. Drag this <a href="javascript:(function(src, cb){var s = document.createElement('script');s.charset = 'UTF-8';document.body.insertBefore(s, document.body.firstChild);s.src = src;if(typeof cb === 'function'){s.onload = cb;s.onreadystatechange = function(){(/loaded|complete/).test(s.readyState)&&cb(s);};}return s;}('https://raw.github.com/rooreynolds/jargone/master/jargone.js', function(e){}))">jargone</a> bookmarklet to your bookmarks bar.</p>
-<p>2. Leverage your synergy.</p>
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			font-family: Georgia;
+			border: solid green 3px;
+		}
+		.loading {
+			background-color: grey;
+		}
+		.loaded {
+			background-color: white;
+		}
+	</style>
+</head>
+<body>
+<div>
+
+	This <a id="jargoneLink" class='loading'>link</a> (after everything is loaded) highlights the jargon and can be bookmarked.
+
+	<script>
+		var link = document.getElementById('jargoneLink');
+		var xhr = new XMLHttpRequest();
+		xhr.open("get", "jargone.js");
+		xhr.onreadystatechange = function() {
+			console.log(xhr.readyState, xhr.status);
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				console.log(xhr.responseText);
+				link.className = "loaded";
+				link.href = "javascript:void"+xhr.responseText;
+			}
+		};
+		xhr.send(null);
+	</script>
+
+
+
+	<p>Hello world!</p>
+
+	<ul>
+		<li>Synergy</li>
+		<li>Profit</li>
+	</ul>
+
+	<p>Lorem ipsum i.e. e.g. dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>This is a <a href="test.html">local link that will be leveraged for now</a></p>
+	<p>Hello leveraged world!</p>
+	<p>This is <a href="http://facebook.com">a link</a> <br/>
+	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis key et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia synergy consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam , quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum synergies iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
+	<p>At vero eos et accusamus et iusto odio dignissimos ducimus empowered and empowering communities qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt leveraging in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum advancing a theory quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis leveraged voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic driving out the issues tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+	<p>And we're all done.</p>
+</div>
+<p>Use plain English – don’t use complicated or long words when easy or short ones will do – use ‘buy’ instead of ‘purchase’, ‘help’ instead of ‘assist’, ‘about’ instead of ‘approximately’ and ‘like’ instead of ‘such as’.</p>
+
+<ul>
+	<li>agenda (unless it is for a meeting)</li>
+	<li>advancing</li>
+	<li>collaborate (use ‘working with’)</li>
+	<li>combating</li>
+	<li>countering</li>
+	<li>deliver (pizzas, post and services are delivered – not abstract concepts like ‘improvements’ or ‘priorities’)</li>
+	<li>dialogue (we speak to people)</li>
+	<li>disincentivise</li>
+	<li>drive out (unless it is cattle)</li>
+	<li>empower</li>
+	<li>facilitate (instead, say something specific about how you are helping)</li>
+	<li>focusing</li>
+	<li>foster (unless it is children)</li>
+	<li>impact (as a verb)</li>
+	<li>initiate</li>
+	<li>key (unless it unlocks something. A subject/thing isn't ‘key’ – it's probably ‘important’)</li>
+	<li>land (as a verb. Only use if you are talking about aircraft)</li>
+	<li>leverage (unless in the financial sense)</li>
+	<li>liaise</li>
+	<li>overarching</li>
+	<li>promote (unless you are talking about an ad campaign or something)</li>
+	<li>robust</li>
+	<li>slimming down (weight-loss is slimming down. Everything else is probably removing x amount of paperwork etc)</li>
+	<li>streamline</li>
+	<li>strengthening (unless it is strengthening bridges or other structures)</li>
+	<li>tackling (unless it is rugby, football, some other sport)</li>
+	<li>transforming (what are you actually doing to change it)</li>
+	<li>utilise</li>
+</ul>
+
+</body>
+</html>
